@@ -1,29 +1,23 @@
 #include<iostream>
 using namespace std;
-int main(){
-    // int n;
-    // cin>>n;
-    // int i=2;
-    // while (i<n){
-    //     if(n%i==0){
-    //         cout<<"Not prime"<<endl;
-    //         return 0;
-    //     }
-    //     // cout<<"prime"<<endl;
-    //     // return 0;
-    // }
 
-
-    int n;
-    cin>>n;
-    int i=2;
-    while(i<n){
-        if(n%i==0){
-            cout<< "Not prime"<< endl;
-            return 0;
-        }
-        i=i+1;
+bool isPrime(int n) {
+    if (n <= 1) return false;  // Prime numbers are greater than 1
+    for (int i = 2; i * i <= n; i++) {  // Check divisibility up to √n
+        if (n % i == 0) return false;  // If divisible, it's not prime
     }
-    cout<<"Prime"<<endl;
+    return true;
+}
+
+int main() {
+    int number;
+    cout << "Enter number: ";
+    cin >> number;
+
+    if (isPrime (number))
+        cout << "Prime" << endl;
+    else
+        cout << "Not Prime" << endl;
+
     return 0;
 }
